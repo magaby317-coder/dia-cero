@@ -1,6 +1,6 @@
-# DÍA CERO: El 11 de Septiembre y la Transformación del Mundo
+# GIMNASIO VALLEGRANDE - PROYECTO DE INVESTIGACIÓN DÍA CERO: El 11 de Septiembre y la Transformación del Mundo
 
-> **Micrositio educativo interdisciplinario de alto impacto visual y rigor académico.**
+> **Micrositio educativo interdisciplinario académico.**
 
 ---
 
