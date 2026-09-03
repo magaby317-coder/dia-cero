@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DÍA CERO — El 11 de Septiembre y la Transformación del Mundo</title>
+  
+  <!-- Metadatos pedagógicos y SEO -->
+  <meta name="description" content="Micrositio educativo interactivo y multidisciplinario sobre los atentados del 11 de septiembre de 2001. Análisis desde la historia, ingeniería, matemáticas, ciencias naturales, economía, geografía y sociedad.">
+  <meta name="keywords" content="11 de septiembre, 9/11, World Trade Center, Torres Gemelas, educación histórica, ingeniería estructural, ciencias ambientales, historia contemporánea">
+  <meta name="author" content="Proyecto Educativo Interdisciplinario">
+  <meta name="theme-color" content="#07080c">
+
+  <!-- Open Graph para difusión académica -->
+  <meta property="og:title" content="DÍA CERO — El 11 de Septiembre y la Transformación del Mundo">
+  <meta property="og:description" content="Experiencia educativa interactiva: cómo un día transformó la historia, la ciencia, la ingeniería y la geopolítica global.">
+  <meta property="og:type" content="website">
+
+  <!-- Tipografías de Google Fonts: Cinzel, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilo cinematográfica -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Barra de progreso de lectura superior -->
+  <div id="scroll-progress" role="progressbar" aria-label="Progreso de navegación del micrositio" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Navegación principal persistente -->
+  <header class="main-header" id="main-header">
+    <a href="#portada" class="brand-logo" aria-label="Volver al inicio de DÍA CERO">
+      <div class="brand-symbol">0</div>
+      <div class="brand-text">
+        <span class="brand-title">DÍA CERO</span>
+        <span class="brand-sub">11-S • 2001</span>
+      </div>
+    </a>
+
+    <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <nav aria-label="Navegación del micrositio">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#portada" class="nav-link active">Inicio</a></li>
+        <li><a href="#antes-despues" class="nav-link">Antes y Después</a></li>
+        <li><a href="#torres-gemelas" class="nav-link">Torres & Disciplinas</a></li>
+        <li><a href="#cuatro-vuelos" class="nav-link">Los 4 Vuelos</a></li>
+        <li><a href="#mapa-interactivo" class="nav-link">Mapa Geográfico</a></li>
+        <li><a href="#humaniza" class="nav-link">Humaniza lo que tocas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ====================================================================
+         SECCIÓN 1: PORTADA (HERO SCREEN)
+         ==================================================================== -->
+    <section class="hero-section" id="portada" aria-label="Portada de DÍA CERO">
+      <canvas id="hero-particles" aria-hidden="true"></canvas>
+
+      <div class="hero-background-media" aria-hidden="true">
+        <img 
+          src="wtc-aerial-2001.jpg" 
+          alt="Vista aérea de Manhattan y el complejo World Trade Center en marzo de 2001"
+          class="hero-bg-img"
+          loading="eager"
+          onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='images/wtc-aerial-2001.jpg';}else{this.style.display='none'; this.nextElementSibling.style.display='flex';}"
+        >
+        <div class="img-fallback-card" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          <p>Manhattan y World Trade Center • Marzo 2001</p>
+        </div>
+      </div>
+
+      <div class="hero-gradient-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="hero-top-badge">
+          <span class="hero-indicator-dot" aria-hidden="true"></span>
+          <span class="hero-top-text">Proyecto Escolar Interdisciplinario • 11-S</span>
+        </div>
+
+        <h1 class="hero-main-title">
+          <span>DÍA CERO</span>
+        </h1>
+
+        <p class="hero-subtitle">El 11 de Septiembre y la Transformación del Mundo</p>
+
+        <div class="hero-quote-box">
+          <p class="hero-quote-text">
+            “Un día cambió la historia. Pero sus consecuencias transformaron mucho más que un lugar.”
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#antes-despues" class="btn-primary" id="btn-explore">
+            <span>EXPLORAR LA HISTORIA</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          </a>
+          <a href="#torres-gemelas" class="btn-secondary">
+            <span>ANÁLISIS MULTIDISCIPLINAR</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 2: ANTES Y DESPUÉS
+         ==================================================================== -->
+    <section class="section-padding before-after-section" id="antes-despues" aria-labelledby="heading-antes-despues">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-subtitle">Dicotomía de una Época</span>
+          <h2 class="section-title" id="heading-antes-despues">ANTES Y DESPUÉS</h2>
+          <p class="section-desc">Un mundo dividido por una fecha. Cómo la vida cotidiana, la movilidad global y la seguridad cambiaron en cuestión de horas.</p>
+        </header>
+
+        <div class="comparison-grid">
+          <!-- Tarjeta ANTES -->
+          <article class="comparison-card before-card reveal-on-scroll" aria-labelledby="title-card-antes">
+            <div>
+              <div class="card-header-badge">
+                <span class="tag-badge blue">Pre-Atentados</span>
+                <span class="card-time-label">Hasta el 10/09/2001</span>
+              </div>
+
+              <h3 class="card-era-title" id="title-card-antes">ANTES</h3>
+              <time class="card-era-date" datetime="2001-09-10">10 de septiembre de 2001</time>
+
+              <ul class="comparison-feature-list">
+                <li class="comparison-feature-item">
+                  <div class="feature-icon-wrapper" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                  </div>
+                  <div class="feature-content">
+                    <h4>World Trade Center & Nueva York</h4>
+                    <p>Símbolo del poder económico global, comercio multilateral y epicentro corporativo con más de 430 firmas de 26 países.</p>
+                  </div>
+                </li>
+
+                <li class="comparison-feature-item">
+                  <div class="feature-icon-wrapper" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Globalización & Comercio</h4>
+                    <p>Crecimiento exponencial de las fronteras abiertas, libre circulación de capitales y euforia comercial post-Guerra Fría.</p>
+                  </div>
+                </li>
+
+                <li class="comparison-feature-item">
+                  <div class="feature-icon-wrapper" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Movilidad y Seguridad Previa</h4>
+                    <p>Familiaridad en aeropuertos: familiares acompañaban a viajeros hasta la puerta de embarque sin billete ni rigurosos controles.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <button class="card-action-btn btn-card-before" id="btn-open-antes" aria-haspopup="dialog">
+              <span>EXPLORAR EL MUNDO ANTES DEL 9/11</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </article>
+
+          <!-- Tarjeta DESPUÉS -->
+          <article class="comparison-card after-card reveal-on-scroll" aria-labelledby="title-card-despues">
+            <div>
+              <div class="card-header-badge">
+                <span class="tag-badge">Nuevo Paradigma</span>
+                <span class="card-time-label">A partir del 11/09/2001</span>
+              </div>
+
+              <h3 class="card-era-title" id="title-card-despues">DESPUÉS</h3>
+              <time class="card-era-date" datetime="2001-09-11">11 de septiembre de 2001 →</time>
+
+              <ul class="comparison-feature-list">
+                <li class="comparison-feature-item">
+                  <div class="feature-icon-wrapper" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Transformación de Aeropuertos y TSA</h4>
+                    <p>Creación de agencias federales masivas, escáneres corporales, revisión estricta de líquidos y puertas de cabina blindadas con kevlar.</p>
+                  </div>
+                </li>
+
+                <li class="comparison-feature-item">
+                  <div class="feature-icon-wrapper" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 12l-4-4-4 4"></path><path d="M12 16V8"></path></svg>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Geopolítica & Guerra contra el Terrorismo</h4>
+                    <p>Intervenciones militares en Afganistán e Irak, auge de la doctrina de guerra preventiva y reconfiguración del mapa de alianzas de la OTAN.</p>
+                  </div>
+                </li>
+
+                <li class="comparison-feature-item">
+                  <div class="feature-icon-wrapper" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Vigilancia Tecnológica & Leyes de Excepción</h4>
+                    <p>Aprobación de la Ley USA PATRIOT, recolección masiva de metadatos, biometría en pasaportes y tensión entre seguridad y privacidad.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <button class="card-action-btn btn-card-after" id="btn-open-despues" aria-haspopup="dialog">
+              <span>EXPLORAR LOS CAMBIOS MUNDIALES</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 3: TORRES GEMELAS Y MULTIDISCIPLINARIEDAD (PRINCIPAL)
+         ==================================================================== -->
+    <section class="section-padding towers-section" id="torres-gemelas" aria-labelledby="heading-torres">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-subtitle">Punto de Convergencia Multidisciplinar</span>
+          <h2 class="section-title" id="heading-torres">TORRES GEMELAS Y MULTIDISCIPLINARIEDAD</h2>
+          <p class="section-desc">
+            “Las Torres Gemelas no fueron solamente edificios. Fueron un punto de encuentro entre arquitectura, economía, ingeniería, ciencia y sociedad.”
+          </p>
+        </header>
+
+        <div class="towers-interactive-wrapper reveal-on-scroll">
+          <div class="towers-center-stage" id="towers-stage">
+            <img 
+              src="wtc-ground-1999.jpg" 
+              alt="Fotografía monumental de las Torres Gemelas del World Trade Center tomada en 1999 desde la base"
+              class="towers-bg-photo"
+              loading="lazy"
+              onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='images/wtc-ground-1999.jpg';}else{this.src='wtc-1995.jpg';}"
+            >
+            <div class="towers-stage-vignette" aria-hidden="true"></div>
+
+            <!-- HOTSPOT 1: HISTORIA -->
+            <button class="hotspot-pin hotspot-1" id="hotspot-1" aria-haspopup="dialog" aria-label="Hotspot 01: Historia e Impacto Geopolítico">
+              <span class="pin-core">
+                01
+                <span class="pin-pulse-ring" aria-hidden="true"></span>
+              </span>
+              <span class="hotspot-label-pill">
+                <span class="label-title">01 — HISTORIA</span>
+                <span class="label-sub">Impacto Geopolítico</span>
+              </span>
+            </button>
+
+            <!-- HOTSPOT 2: MATEMÁTICAS Y ECONOMÍA -->
+            <button class="hotspot-pin hotspot-2" id="hotspot-2" aria-haspopup="dialog" aria-label="Hotspot 02: Los Números del Impacto (Matemáticas y Economía)">
+              <span class="pin-core">
+                02
+                <span class="pin-pulse-ring" aria-hidden="true"></span>
+              </span>
+              <span class="hotspot-label-pill">
+                <span class="label-title">02 — MATEMÁTICAS & ECONOMÍA</span>
+                <span class="label-sub">Los Números del Impacto</span>
+              </span>
+            </button>
+
+            <!-- HOTSPOT 3: CIENCIAS NATURALES -->
+            <button class="hotspot-pin hotspot-3" id="hotspot-3" aria-haspopup="dialog" aria-label="Hotspot 03: Ciencias Naturales y Medio Ambiente">
+              <span class="pin-core">
+                03
+                <span class="pin-pulse-ring" aria-hidden="true"></span>
+              </span>
+              <span class="hotspot-label-pill">
+                <span class="label-title">03 — CIENCIAS NATURALES</span>
+                <span class="label-sub">Medio Ambiente & Salud</span>
+              </span>
+            </button>
+
+            <!-- HOTSPOT 4: INGENIERÍA -->
+            <button class="hotspot-pin hotspot-4" id="hotspot-4" aria-haspopup="dialog" aria-label="Hotspot 04: Ingeniería Estructural">
+              <span class="pin-core">
+                04
+                <span class="pin-pulse-ring" aria-hidden="true"></span>
+              </span>
+              <span class="hotspot-label-pill">
+                <span class="label-title">04 — INGENIERÍA</span>
+                <span class="label-sub">¿Cómo estaban construidas?</span>
+              </span>
+            </button>
+          </div>
+
+          <!-- Rejilla accesible de hotspots para dispositivos móviles -->
+          <div class="hotspots-mobile-grid" aria-label="Botones de acceso a disciplinas">
+            <button class="hotspot-mobile-card" id="btn-mobile-hs1">
+              <span class="pin-core">01</span>
+              <div>
+                <strong class="label-title">HISTORIA</strong>
+                <span class="label-sub">Impacto Geopolítico Global</span>
+              </div>
+            </button>
+
+            <button class="hotspot-mobile-card" id="btn-mobile-hs2">
+              <span class="pin-core">02</span>
+              <div>
+                <strong class="label-title">MATEMÁTICAS & ECONOMÍA</strong>
+                <span class="label-sub">Dimensionar la Magnitud</span>
+              </div>
+            </button>
+
+            <button class="hotspot-mobile-card" id="btn-mobile-hs3">
+              <span class="pin-core">03</span>
+              <div>
+                <strong class="label-title">CIENCIAS NATURALES</strong>
+                <span class="label-sub">Medio Ambiente y Pluma Tóxica</span>
+              </div>
+            </button>
+
+            <button class="hotspot-mobile-card" id="btn-mobile-hs4">
+              <span class="pin-core">04</span>
+              <div>
+                <strong class="label-title">INGENIERÍA ESTRUCTURAL</strong>
+                <span class="label-sub">¿Cómo estaban construidas?</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 4: LOS CUATRO VUELOS
+         ==================================================================== -->
+    <section class="section-padding flights-section" id="cuatro-vuelos" aria-labelledby="heading-vuelos">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-subtitle">Cronología Aérea Rigurosa</span>
+          <h2 class="section-title" id="heading-vuelos">LOS CUATRO VUELOS</h2>
+          <p class="section-desc">Cuatro aeronaves comerciales transcontinentales desviadas sistemáticamente de sus rutas programadas. Datos cronológicos verificados por la Comisión Nacional del 11-S.</p>
+        </header>
+
+        <div class="flights-grid">
+          <!-- VUELO 1: AA11 -->
+          <article class="flight-card reveal-on-scroll" aria-labelledby="flight-11-title">
+            <div>
+              <span class="flight-code">VUELO 1 • BOEING 767-223ER</span>
+              <h3 class="flight-name" id="flight-11-title">American Airlines 11</h3>
+              <div class="flight-route-display">
+                <span>Boston (BOS)</span>
+                <span class="flight-route-arrow" aria-hidden="true">→</span>
+                <span>Los Ángeles (LAX)</span>
+              </div>
+
+              <div class="flight-specs">
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Despegue</span>
+                  <span class="flight-spec-val font-mono">07:59 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Secuestro</span>
+                  <span class="flight-spec-val font-mono">~08:14 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Impacto</span>
+                  <span class="flight-spec-val font-mono">08:46:40 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Lugar</span>
+                  <span class="flight-spec-val">Torre Norte WTC (Pisos 93-99)</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-flight-inspect" data-flight="aa11">
+              <span>Examinar Detalles</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </article>
+
+          <!-- VUELO 2: UA175 -->
+          <article class="flight-card reveal-on-scroll" aria-labelledby="flight-175-title">
+            <div>
+              <span class="flight-code">VUELO 2 • BOEING 767-222</span>
+              <h3 class="flight-name" id="flight-175-title">United Airlines 175</h3>
+              <div class="flight-route-display">
+                <span>Boston (BOS)</span>
+                <span class="flight-route-arrow" aria-hidden="true">→</span>
+                <span>Los Ángeles (LAX)</span>
+              </div>
+
+              <div class="flight-specs">
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Despegue</span>
+                  <span class="flight-spec-val font-mono">08:14 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Secuestro</span>
+                  <span class="flight-spec-val font-mono">08:42 - 08:46 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Impacto</span>
+                  <span class="flight-spec-val font-mono">09:03:02 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Lugar</span>
+                  <span class="flight-spec-val">Torre Sur WTC (Pisos 77-85)</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-flight-inspect" data-flight="ua175">
+              <span>Examinar Detalles</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </article>
+
+          <!-- VUELO 3: AA77 -->
+          <article class="flight-card reveal-on-scroll" aria-labelledby="flight-77-title">
+            <div>
+              <span class="flight-code">VUELO 3 • BOEING 757-223</span>
+              <h3 class="flight-name" id="flight-77-title">American Airlines 77</h3>
+              <div class="flight-route-display">
+                <span>Washington (IAD)</span>
+                <span class="flight-route-arrow" aria-hidden="true">→</span>
+                <span>Los Ángeles (LAX)</span>
+              </div>
+
+              <div class="flight-specs">
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Despegue</span>
+                  <span class="flight-spec-val font-mono">08:20 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Secuestro</span>
+                  <span class="flight-spec-val font-mono">08:51 - 08:54 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Impacto</span>
+                  <span class="flight-spec-val font-mono">09:37:46 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Lugar</span>
+                  <span class="flight-spec-val">El Pentágono (Arlington, VA)</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-flight-inspect" data-flight="aa77">
+              <span>Examinar Detalles</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </article>
+
+          <!-- VUELO 4: UA93 -->
+          <article class="flight-card reveal-on-scroll" aria-labelledby="flight-93-title">
+            <div>
+              <span class="flight-code">VUELO 4 • BOEING 757-222</span>
+              <h3 class="flight-name" id="flight-93-title">United Airlines 93</h3>
+              <div class="flight-route-display">
+                <span>Newark (EWR)</span>
+                <span class="flight-route-arrow" aria-hidden="true">→</span>
+                <span>San Francisco (SFO)</span>
+              </div>
+
+              <div class="flight-specs">
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Despegue</span>
+                  <span class="flight-spec-val font-mono">08:42 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Secuestro</span>
+                  <span class="flight-spec-val font-mono">09:28 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Caída</span>
+                  <span class="flight-spec-val font-mono">10:03:11 EDT</span>
+                </div>
+                <div class="flight-spec-row">
+                  <span class="flight-spec-label">Lugar</span>
+                  <span class="flight-spec-val">Shanksville, Pensilvania</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-flight-inspect" data-flight="ua93">
+              <span>Examinar Detalles</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 5: MAPA INTERACTIVO GEOGRÁFICO
+         ==================================================================== -->
+    <section class="section-padding map-section" id="mapa-interactivo" aria-labelledby="heading-mapa">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-subtitle">Geografía y Rutas Aéreas</span>
+          <h2 class="section-title" id="heading-mapa">EL MAPA DE UN DÍA QUE CAMBIÓ EL MUNDO</h2>
+          <p class="section-desc">Observa las trayectorias reales, los puntos geográficos neurálgicos y el espacio aéreo norteamericano antes del cierre de operaciones (Ground Stop de la FAA).</p>
+        </header>
+
+        <div class="map-card-container reveal-on-scroll">
+          <div class="map-controls-bar">
+            <div class="map-legend">
+              <span class="legend-item">
+                <span class="legend-color-dot dot-aa11" aria-hidden="true"></span>
+                <span>AA 11 (Torre Norte)</span>
+              </span>
+              <span class="legend-item">
+                <span class="legend-color-dot dot-ua175" aria-hidden="true"></span>
+                <span>UA 175 (Torre Sur)</span>
+              </span>
+              <span class="legend-item">
+                <span class="legend-color-dot dot-aa77" aria-hidden="true"></span>
+                <span>AA 77 (Pentágono)</span>
+              </span>
+              <span class="legend-item">
+                <span class="legend-color-dot dot-ua93" aria-hidden="true"></span>
+                <span>UA 93 (Shanksville)</span>
+              </span>
+            </div>
+
+            <div class="map-filter-buttons">
+              <button class="btn-map-filter active" data-map-filter="all">Todas las Rutas</button>
+              <button class="btn-map-filter" data-map-filter="aa11">Vuelo 11</button>
+              <button class="btn-map-filter" data-map-filter="ua175">Vuelo 175</button>
+              <button class="btn-map-filter" data-map-filter="aa77">Vuelo 77</button>
+              <button class="btn-map-filter" data-map-filter="ua93">Vuelo 93</button>
+            </div>
+          </div>
+
+          <div class="interactive-svg-map-wrapper">
+            <!-- Tooltip flotante con datos de los puntos geográficos -->
+            <div class="map-point-tooltip" id="map-point-tooltip" role="tooltip">
+              <h4 class="tooltip-title" id="tooltip-title">Punto geográfico</h4>
+              <span class="tooltip-badge" id="tooltip-badge">Relevancia</span>
+              <p class="tooltip-desc" id="tooltip-desc">Descripción contextual del lugar.</p>
+            </div>
+
+            <!-- Mapa vectorial SVG de alta precisión técnica -->
+            <svg class="svg-map-viewport" viewBox="0 0 1000 550" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa cartográfico con rutas aéreas de los vuelos del 11 de septiembre">
+              <defs>
+                <!-- Filtro de resplandor para rutas -->
+                <filter id="glow-red" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <linearGradient id="route-aa11" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ef4444" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#b91c1c" stop-opacity="0.7" />
+                </linearGradient>
+                <linearGradient id="route-ua175" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#f97316" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#ea580c" stop-opacity="0.7" />
+                </linearGradient>
+                <linearGradient id="route-aa77" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#0284c7" stop-opacity="0.7" />
+                </linearGradient>
+                <linearGradient id="route-ua93" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#c084fc" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#9333ea" stop-opacity="0.7" />
+                </linearGradient>
+              </defs>
+
+              <!-- Rejilla cartográfica técnica de latitud/longitud de fondo -->
+              <g stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3,6" aria-hidden="true">
+                <line x1="100" y1="50" x2="100" y2="500" />
+                <line x1="250" y1="50" x2="250" y2="500" />
+                <line x1="400" y1="50" x2="400" y2="500" />
+                <line x1="550" y1="50" x2="550" y2="500" />
+                <line x1="700" y1="50" x2="700" y2="500" />
+                <line x1="850" y1="50" x2="850" y2="500" />
+                <line x1="50" y1="120" x2="950" y2="120" />
+                <line x1="50" y1="240" x2="950" y2="240" />
+                <line x1="50" y1="360" x2="950" y2="360" />
+                <line x1="50" y1="460" x2="950" y2="460" />
+              </g>
+
+              <!-- Silueta estilizada de Estados Unidos continental -->
+              <path class="map-continent-outline" d="M 120 160 Q 180 140 280 160 T 450 170 T 620 180 T 780 150 Q 860 130 910 180 Q 940 210 930 250 Q 900 300 870 330 T 840 430 Q 770 450 670 430 T 500 480 Q 420 460 350 410 T 220 380 Q 140 370 110 320 T 120 160 Z" fill="#0d1424" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+
+              <!-- Destinos programados en la Costa Oeste (Líneas discontinuas transparentes de vuelo proyectado) -->
+              <g stroke="rgba(255,255,255,0.15)" stroke-width="1.2" stroke-dasharray="4,8" aria-hidden="true">
+                <!-- Proyección a Los Ángeles (LAX) -->
+                <path d="M 870 190 Q 520 280 180 340" />
+                <!-- Proyección a San Francisco (SFO) -->
+                <path d="M 850 195 Q 500 240 150 260" />
+              </g>
+
+              <!-- Rutas reales de los 4 vuelos secuestrados -->
+              <!-- RUTA 1: AA 11 (Boston -> Desvío Albany -> Sur hacia NYC WTC) -->
+              <path id="path-aa11" class="flight-flightpath" d="M 890 170 Q 840 140 820 170 L 870 200" fill="none" stroke="url(#route-aa11)" stroke-width="3" stroke-linecap="round" filter="url(#glow-red)" />
+
+              <!-- RUTA 2: UA 175 (Boston -> Massachusetts -> Desvío New Jersey -> NYC WTC) -->
+              <path id="path-ua175" class="flight-flightpath" d="M 890 170 Q 820 180 810 230 Q 840 240 870 200" fill="none" stroke="url(#route-ua175)" stroke-width="3" stroke-linecap="round" />
+
+              <!-- RUTA 3: AA 77 (Dulles -> Ohio / Virginia Occidental -> Giro de 180° -> Pentágono) -->
+              <path id="path-aa77" class="flight-flightpath" d="M 830 230 Q 730 220 670 250 Q 720 290 825 240" fill="none" stroke="url(#route-aa77)" stroke-width="3" stroke-linecap="round" filter="url(#glow-blue)" />
+
+              <!-- RUTA 4: UA 93 (Newark -> Ohio -> Desvío hacia Washington -> Resistencia y caída en Shanksville) -->
+              <path id="path-ua93" class="flight-flightpath" d="M 865 195 Q 750 210 680 230 Q 730 250 780 235" fill="none" stroke="url(#route-ua93)" stroke-width="3" stroke-linecap="round" />
+
+              <!-- NODOS GEOGRÁFICOS INTERACTIVOS (Pins pulsables) -->
+              <!-- 1. Boston (Aeropuerto Logan - BOS) -->
+              <g class="map-node" data-loc="boston" tabindex="0" role="button" aria-label="Nodo Boston: Aeropuerto Logan">
+                <circle cx="890" cy="170" r="14" fill="rgba(56,189,248,0.15)" stroke="#38bdf8" stroke-width="1.5" />
+                <circle cx="890" cy="170" r="5" fill="#ffffff" />
+                <text x="908" y="166" fill="#cbd5e1" font-size="12" font-weight="600" font-family="'Inter', sans-serif">Boston (BOS)</text>
+                <text x="908" y="180" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace">Salida AA11 & UA175</text>
+              </g>
+
+              <!-- 2. Newark (Aeropuerto Newark Liberty - EWR) -->
+              <g class="map-node" data-loc="newark" tabindex="0" role="button" aria-label="Nodo Newark: Aeropuerto Newark Liberty">
+                <circle cx="865" cy="195" r="12" fill="rgba(192,132,252,0.15)" stroke="#c084fc" stroke-width="1.5" />
+                <circle cx="865" cy="195" r="4.5" fill="#ffffff" />
+                <text x="880" y="208" fill="#cbd5e1" font-size="12" font-weight="600" font-family="'Inter', sans-serif">Newark (EWR)</text>
+              </g>
+
+              <!-- 3. Nueva York (World Trade Center - Ground Zero) -->
+              <g class="map-node" data-loc="nyc" tabindex="0" role="button" aria-label="Nodo Nueva York: World Trade Center">
+                <circle cx="870" cy="200" r="18" fill="rgba(220,38,38,0.25)" stroke="#dc2626" stroke-width="2" class="node-pulse" />
+                <circle cx="870" cy="200" r="6.5" fill="#ef4444" />
+                <text x="770" y="195" fill="#ffffff" font-size="13" font-weight="700" font-family="'Inter', sans-serif">Nueva York (WTC)</text>
+                <text x="765" y="210" fill="#f87171" font-size="10" font-family="'JetBrains Mono', monospace">Impactos 08:46 y 09:03</text>
+              </g>
+
+              <!-- 4. Washington D.C. / El Pentágono (IAD & Arlington) -->
+              <g class="map-node" data-loc="pentagon" tabindex="0" role="button" aria-label="Nodo Washington y El Pentágono">
+                <circle cx="825" cy="240" r="16" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" stroke-width="1.8" />
+                <circle cx="825" cy="240" r="5.5" fill="#38bdf8" />
+                <text x="842" y="250" fill="#ffffff" font-size="12" font-weight="700" font-family="'Inter', sans-serif">El Pentágono / Dulles</text>
+                <text x="842" y="264" fill="#7dd3fc" font-size="10" font-family="'JetBrains Mono', monospace">Impacto AA77 • 09:37</text>
+              </g>
+
+              <!-- 5. Shanksville, Pensilvania (Caída del Vuelo 93) -->
+              <g class="map-node" data-loc="shanksville" tabindex="0" role="button" aria-label="Nodo Shanksville, Pensilvania">
+                <circle cx="780" cy="235" r="14" fill="rgba(192,132,252,0.2)" stroke="#c084fc" stroke-width="1.8" />
+                <circle cx="780" cy="235" r="5" fill="#c084fc" />
+                <text x="690" y="225" fill="#ffffff" font-size="12" font-weight="700" font-family="'Inter', sans-serif">Shanksville, PA</text>
+                <text x="690" y="240" fill="#d8b4fe" font-size="10" font-family="'JetBrains Mono', monospace">Caída UA93 • 10:03</text>
+              </g>
+
+              <!-- 6. Los Ángeles (LAX - Destino planificado de 3 vuelos) -->
+              <g class="map-node" data-loc="lax" tabindex="0" role="button" aria-label="Nodo Los Ángeles: Destino planificado">
+                <circle cx="180" cy="340" r="12" fill="rgba(255,255,255,0.08)" stroke="#94a3b8" stroke-width="1.2" />
+                <circle cx="180" cy="340" r="4" fill="#ffffff" />
+                <text x="120" y="370" fill="#e2e8f0" font-size="12" font-weight="600" font-family="'Inter', sans-serif">Los Ángeles (LAX)</text>
+                <text x="110" y="385" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace">Destino AA11, UA175, AA77</text>
+              </g>
+
+              <!-- 7. San Francisco (SFO - Destino planificado del Vuelo 93) -->
+              <g class="map-node" data-loc="sfo" tabindex="0" role="button" aria-label="Nodo San Francisco: Destino del Vuelo 93">
+                <circle cx="150" cy="260" r="12" fill="rgba(255,255,255,0.08)" stroke="#94a3b8" stroke-width="1.2" />
+                <circle cx="150" cy="260" r="4" fill="#ffffff" />
+                <text x="80" y="250" fill="#e2e8f0" font-size="12" font-weight="600" font-family="'Inter', sans-serif">San Francisco (SFO)</text>
+                <text x="90" y="265" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace">Destino UA93</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 6: REFLEXIÓN — HUMANIZA LO QUE TOCAS
+         ==================================================================== -->
+    <section class="section-padding reflection-section" id="humaniza" aria-labelledby="heading-humaniza">
+      <div class="container">
+        <div class="reflection-hero-box reveal-on-scroll">
+          <span class="section-subtitle">Dimensión Ética e Histórica</span>
+          <h2 class="section-title" id="heading-humaniza">HUMANIZA LO QUE TOCAS</h2>
+          <blockquote class="reflection-quote">
+            “Detrás de cada número existe una persona.<br>
+            Detrás de cada edificio existe una historia.<br>
+            Detrás de cada acontecimiento existen decisiones que cambian generaciones.”
+          </blockquote>
+          <span class="reflection-quote-author">Síntesis Educativa y Pedagógica</span>
+        </div>
+
+        <header class="section-header reveal-on-scroll">
+          <h3 class="section-title">¿QUÉ APRENDEMOS?</h3>
+          <p class="section-desc">Un hecho histórico traumático no es solo una efeméride: es una ventana para comprender el conocimiento humano desde múltiples disciplinas científicas y sociales.</p>
+        </header>
+
+        <div class="multidisciplinary-grid">
+          <!-- 1. HISTORIA -->
+          <article class="discipline-card reveal-on-scroll">
+            <div class="discipline-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            </div>
+            <h4 class="discipline-title">Historia</h4>
+            <span class="discipline-subtitle">Comprender el pasado</span>
+            <p class="discipline-text">
+              Analizar los antecedentes de la Guerra Fría, el terrorismo transnacional y cómo las decisiones políticas de emergencia redefinen las libertades cívicas y la diplomacia mundial durante décadas.
+            </p>
+          </article>
+
+          <!-- 2. MATEMÁTICAS -->
+          <article class="discipline-card reveal-on-scroll">
+            <div class="discipline-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <h4 class="discipline-title">Matemáticas</h4>
+            <span class="discipline-subtitle">Medir el impacto</span>
+            <p class="discipline-text">
+              Comprender órdenes de magnitud, tasas de evacuación geométrica, cálculo probabilístico de resistencia de materiales y costos macroeconómicos globales a largo plazo.
+            </p>
+          </article>
+
+          <!-- 3. CIENCIAS NATURALES -->
+          <article class="discipline-card reveal-on-scroll">
+            <div class="discipline-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+            </div>
+            <h4 class="discipline-title">Ciencias</h4>
+            <span class="discipline-subtitle">Comprender las consecuencias</span>
+            <p class="discipline-text">
+              Examinar la fisicoquímica de las partículas microscópicas en suspensión (amianto, sílice, alcalinidad pH 11), la termodinámica de fuegos subterráneos y la epidemiología de los servicios de rescate.
+            </p>
+          </article>
+
+          <!-- 4. INGENIERÍA -->
+          <article class="discipline-card reveal-on-scroll">
+            <div class="discipline-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            </div>
+            <h4 class="discipline-title">Ingeniería</h4>
+            <span class="discipline-subtitle">Analizar estructuras</span>
+            <p class="discipline-text">
+              Estudiar la innovación de tubos perimetrales (*framed tube*), el comportamiento del acero estructural a 600°C y cómo este evento reescribió los códigos globales de diseño sismo-resistente y contra incendios.
+            </p>
+          </article>
+
+          <!-- 5. GEOGRAFÍA -->
+          <article class="discipline-card reveal-on-scroll">
+            <div class="discipline-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+            </div>
+            <h4 class="discipline-title">Geografía</h4>
+            <span class="discipline-subtitle">El espacio y las conexiones</span>
+            <p class="discipline-text">
+              Comprender el espacio aéreo, las fronteras geopolíticas, los husos horarios y cómo un suceso localizado en el noreste estadounidense generó repercusiones territoriales en todo el planeta.
+            </p>
+          </article>
+
+          <!-- 6. SOCIEDAD -->
+          <article class="discipline-card reveal-on-scroll">
+            <div class="discipline-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h4 class="discipline-title">Sociedad</h4>
+            <span class="discipline-subtitle">Consecuencias humanas</span>
+            <p class="discipline-text">
+              Reflexionar sobre la empatía, la memoria colectiva, la solidaridad de los rescatistas, la protección de los derechos civiles y la responsabilidad ciudadana en la preservación de la paz.
+            </p>
+          </article>
+        </div>
+
+        <!-- Estación de pensamiento crítico escolar -->
+        <div class="student-reflection-tool reveal-on-scroll">
+          <div class="student-tool-header">
+            <h3>Preguntas para el Análisis Crítico Escolar</h3>
+            <p>Selecciona una dimensión de debate para explorar interrogantes que invitan a la reflexión interdisciplinaria.</p>
+          </div>
+
+          <div class="reflection-question-tabs" role="tablist">
+            <button class="btn-reflection-tab active" role="tab" aria-selected="true" data-tab="tab-seguridad">Privacidad vs Seguridad</button>
+            <button class="btn-reflection-tab" role="tab" aria-selected="false" data-tab="tab-arquitectura">El Futuro de las Ciudades</button>
+            <button class="btn-reflection-tab" role="tab" aria-selected="false" data-tab="tab-memoria">Memoria Histórica</button>
+          </div>
+
+          <div class="reflection-tab-content" id="reflection-content-display">
+            <p><strong>Dilema:</strong> Tras el 11 de septiembre, muchos gobiernos aumentaron la videovigilancia y el monitoreo digital para prevenir amenazas. ¿Hasta qué punto una sociedad debe ceder su privacidad individual en búsqueda de una mayor seguridad colectiva? ¿Cuáles son los límites éticos del control estatal?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       PIE DE PÁGINA (FOOTER)
+       ==================================================================== -->
+  <footer class="main-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>DÍA CERO</h4>
+          <p>Micrositio educativo interdisciplinario concebido para la investigación escolar, el análisis crítico y la comprensión de un acontecimiento histórico trascendental a través de la ciencia, las matemáticas y las humanidades.</p>
+          <span class="tag-badge gray" style="margin-top: 1rem;">Diseñado para GitHub Pages</span>
+        </div>
+
+        <div>
+          <h4 style="font-size: 1rem; color: #fff; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">Áreas de Estudio</h4>
+          <ul class="footer-links-list">
+            <li><a href="#torres-gemelas">Historia Contemporánea</a></li>
+            <li><a href="#torres-gemelas">Matemáticas Aplicadas</a></li>
+            <li><a href="#torres-gemelas">Ciencias Ambientales</a></li>
+            <li><a href="#torres-gemelas">Ingeniería Estructural</a></li>
+            <li><a href="#mapa-interactivo">Geografía Aérea</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-size: 1rem; color: #fff; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">Fuentes Verificadas</h4>
+          <ul class="footer-links-list">
+            <li><span style="color: #94a3b8;">The 9/11 Commission Report (2004)</span></li>
+            <li><span style="color: #94a3b8;">NIST NCSTAR 1 (2005)</span></li>
+            <li><span style="color: #94a3b8;">WTC Health Program (CDC/NIOSH)</span></li>
+            <li><span style="color: #94a3b8;">Costs of War Project (Brown University)</span></li>
+            <li><span style="color: #94a3b8;">Library of Congress (Highsmith Archive)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© DÍA CERO • Proyecto Escolar de Alto Nivel Académico. Todos los datos históricos y científicos han sido verificados con fuentes documentales oficiales.</p>
+        <p class="font-mono">HTML5 • CSS3 • JavaScript Puro • Accesibilidad WCAG</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       CONTENEDOR GLOBAL DE MODALES ACCESIBLES
+       ==================================================================== -->
+  <div class="modal-overlay" id="global-modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+    <div class="modal-container" id="global-modal-container">
+      <header class="modal-header">
+        <div class="modal-header-text">
+          <h3 id="modal-title">Título del Modal</h3>
+          <p id="modal-subtitle">Subtítulo o categoría</p>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Cerrar ventana emergente">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+
+      <div class="modal-body" id="modal-body">
+        <!-- El contenido dinámico complementario e interactivo se inyecta vía script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Lógica e interactividad -->
+  <script src="script.js"></script>
+</body>
+</html>
